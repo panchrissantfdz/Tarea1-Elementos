@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_text_fields"
+        android:title="Text Fields"
+        android:icon="@drawable/ic_baseline_text_fields_24" />
+    <item
+        android:id="@+id/nav_buttons"
+        android:title="Botones"
+        android:icon="@drawable/ic_baseline_touch_app_24" />
+    <item
+        android:id="@+id/nav_selection"
+        android:title="Selección"
+        android:icon="@drawable/ic_baseline_check_box_24" />
+    <item
+        android:id="@+id/nav_lists"
+        android:title="Listas"
+        android:icon="@drawable/ic_baseline_list_24" />
+    <item
+        android:id="@+id/nav_info"
+        android:title="Información"
+        android:icon="@drawable/ic_baseline_info_24" />
+</menu>

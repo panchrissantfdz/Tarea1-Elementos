@@ -3,16 +3,51 @@ package com.example.tarea1
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.tarea1.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Cargar un fragment simple por defecto
         if (savedInstanceState == null) {
-            loadFragment(SimpleFragment())
+            loadFragment(TextFieldsFragment())
+        }
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_text_fields -> {
+                    loadFragment(TextFieldsFragment())
+                    true
+                }
+
+                R.id.nav_buttons -> {
+                    loadFragment(ButtonsFragment())
+                    true
+                }
+
+                R.id.nav_selection -> {
+                    loadFragment(SelectionElementsFragment())
+                    true
+                }
+
+                R.id.nav_lists -> {
+                    loadFragment(ListsFragment())
+                    true
+                }
+
+                R.id.nav_info -> {
+                    loadFragment(InformationFragment())
+                    true
+                }
+
+                else -> false
+            }
         }
     }
 
@@ -20,5 +55,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+
     }
 }
